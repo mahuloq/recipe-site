@@ -12,6 +12,11 @@ export class RecipesListComponent implements OnInit {
       'This Is Simply A Test',
       'https://thecozycook.com/wp-content/uploads/2023/02/Homemade-Ramen-1-.jpg'
     ),
+    new Recipe(
+      'A Test Recipe',
+      'This Is Simply A Test',
+      'https://thecozycook.com/wp-content/uploads/2023/02/Homemade-Ramen-1-.jpg'
+    ),
   ];
 
   constructor() {}
