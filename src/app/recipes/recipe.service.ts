@@ -16,9 +16,9 @@ export class RecipeService {
       [new Ingredient('Meat', 1), new Ingredient('French Fries', 20)]
     ),
     new Recipe(
-      'Another Test Recipe',
+      'Dango',
       'This is food',
-      'https://thecozycook.com/wp-content/uploads/2023/02/Homemade-Ramen-1-.jpg',
+      'https://cdn.media.amplience.net/i/japancentre/recipes-693-three-colour-dango-dumplings/recipes-693-three-colour-dango-dumplings?$poi$&w=700&sm=aspect&aspect=16:9&fmt=auto',
       [new Ingredient('Buns', 2), new Ingredient('Meat', 1)]
     ),
   ];
@@ -43,6 +43,11 @@ export class RecipeService {
 
   updateRecipe(index: number, newRecipe: Recipe) {
     this.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
     this.recipesChanged.next(this.recipes.slice());
   }
 }
