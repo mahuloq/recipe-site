@@ -10,6 +10,8 @@ export class AuthComponent {
   constructor(private authService: AuthService) {}
 
   isLoginMode = true;
+  isLoading = false;
+  error: string = null;
 
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
@@ -20,18 +22,22 @@ export class AuthComponent {
       return;
     }
 
+    const email = form.value.email;
+    const password = form.value.password;
+
+    this.isLoading = true;
     if (this.isLoginMode) {
       // ...
     } else {
-      const email = form.value.email;
-      const password = form.value.password;
-
       this.authService.signUp(email, password).subscribe(
         (resData) => {
           console.log(resData);
+          this.isLoading = false;
         },
         (error) => {
           console.log(error);
+          this.error = 'An error occured!';
+          this.isLoading = false;
         }
       );
     }
