@@ -65,3 +65,12 @@ console.log(form.value);
 form.reset();
 }
 }
+
+# TO turn on auth on firebase, in authentication turn email on, and in rules set read and write to
+
+{
+"rules": {
+".read": "auth != null",
+".write": "auth != null"
+}
+}
